@@ -43,3 +43,50 @@ console.log('Proje açıldı!')
 
 
 /* Kodlar Buradan aşağıya */
+//HEADER
+document.getElementById("logo-img").setAttribute("src",siteContent.images["logo-img"]);
+const navLinks=document.querySelectorAll("header nav a");
+navLinks.forEach((nav,i)=>{
+  nav.textContent=Object.values(siteContent.nav)[i];
+  nav.setAttribute("class","italic"); 
+});
+
+document
+  .getElementById("cta-img")
+  .setAttribute("src", siteContent.images["cta-img"]);
+document
+.getElementById("middle-img")
+.setAttribute("src", siteContent.images["accent-img"]);
+
+const ctaText = document.querySelector(".cta-text h1");
+ctaText.textContent = siteContent.cta.h1;
+document.querySelector(".cta-text button").textContent = siteContent.cta.button;
+
+const theContentArray = Object.values(siteContent["ana-içerik"]);
+
+const theContentBody = document.querySelectorAll(".text-content");
+theContentBody.forEach((c, i) => {
+  c.querySelector("h4").textContent = theContentArray[i * 2];
+  c.querySelector("p").textContent = theContentArray[i * 2 + 1];
+});
+
+//CONTACT
+const contactSection=document.querySelector(".contact");
+contactSection.querySelector("h4").textContent=siteContent.iletisim["iletişim-h4"];
+
+const contactSectionP=contactSection.querySelectorAll("p");
+contactSectionP.forEach((p,i)=>{p.textContent=Object.values(siteContent.iletisim)[i+1]});
+
+//COPYRIGHT
+
+const footerC=document.querySelector("footer a");
+footerC.textContent=siteContent.footer.copyright;
+footerC.classList.add("bold");
+
+
+
+
+
+
+
+
